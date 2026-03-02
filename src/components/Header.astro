@@ -1,0 +1,180 @@
+---
+const pathname = Astro.url.pathname;
+
+// Normalize paths to prevent trailing slash issues
+const normalize = (path) => path.replace(/\/$/, '') || '/';
+const isActive = (path) => normalize(pathname) === normalize(path);
+---
+
+<header class="fixed top-0 w-full z-50 transition-all duration-300 border-b border-white/5 backdrop-blur-md bg-brand-black/80">
+  <nav class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+    
+    <!-- Logo -->
+    <div class="flex items-center group cursor-pointer">
+      <a href="/" class="flex items-center">
+        <div class="relative">
+          <img src="/assets/deexon.png" alt="Deexon Logo" class="h-9 w-auto brightness-110" />
+          <div class="absolute -inset-1 bg-brand-gold/20 blur-lg opacity-0 group-hover:opacity-100 transition duration-500"></div>
+        </div>
+        <span class="ml-3 text-sm font-bold tracking-widest uppercase text-white/90">
+          Deexon
+        </span>
+      </a>
+    </div>
+
+    <!-- Desktop Nav -->
+    <ul class="hidden md:flex items-center space-x-10 text-[11px] font-bold uppercase tracking-[0.2em] text-white">
+      
+      <li>
+        <a 
+          href="/" 
+          class={`hover:text-brand-gold transition-colors duration-300 ${
+            isActive('/') ? 'text-brand-gold font-bold' : ''
+          }`}
+        >
+          Home
+        </a>
+      </li>
+
+      <li>
+        <a 
+          href="/services" 
+          class={`hover:text-brand-gold transition-colors duration-300 ${
+            isActive('/services') ? 'text-brand-gold font-bold' : ''
+          }`}
+        >
+          Services
+        </a>
+      </li>
+
+      <li>
+        <a 
+          href="/about" 
+          class={`hover:text-brand-gold transition-colors duration-300 ${
+            isActive('/about') ? 'text-brand-gold font-bold' : ''
+          }`}
+        >
+          About
+        </a>
+      </li>
+
+    </ul>
+
+    <!-- Right Side -->
+    <div class="flex items-center space-x-6">
+      <a href="/contact" class="hidden sm:block text-[11px] font-bold uppercase tracking-widest text-white border-b border-brand-gold pb-1 hover:text-brand-gold transition-all">
+        Request Consultation
+      </a>
+
+      <!-- Hamburger -->
+      <button id="menuBtn" class="md:hidden text-white relative z-50">
+        <span class="block w-6 h-[1.5px] bg-white mb-1 transition-all duration-300"></span>
+        <span class="block w-6 h-[1.5px] bg-white mb-1 transition-all duration-300"></span>
+        <span class="block w-6 h-[1.5px] bg-white transition-all duration-300"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="fixed inset-0 bg-black/70 backdrop-blur-lg opacity-0 invisible transition-all duration-300 md:hidden">
+    <div class="absolute top-0 left-0 w-full bg-brand-black border-t border-white/10 mt-20 py-10 px-6 transform -translate-y-10 transition-all duration-300" id="menuPanel">
+      <ul class="space-y-8 text-sm font-bold uppercase tracking-widest text-white/70 text-center">
+
+        <li>
+          <a 
+            href="/" 
+            class={`block hover:text-brand-gold ${
+              isActive('/') ? 'text-brand-gold' : ''
+            }`}
+          >
+            Home
+          </a>
+        </li>
+
+        <li>
+          <a 
+            href="/services" 
+            class={`block hover:text-brand-gold ${
+              isActive('/services') ? 'text-brand-gold' : ''
+            }`}
+          >
+            Services
+          </a>
+        </li>
+
+        <li>
+          <a 
+            href="/academy" 
+            class={`block hover:text-brand-gold ${
+              isActive('/academy') ? 'text-brand-gold' : ''
+            }`}
+          >
+            Academy
+          </a>
+        </li>
+
+        <li>
+          <a 
+            href="/about" 
+            class={`block hover:text-brand-gold ${
+              isActive('/about') ? 'text-brand-gold' : ''
+            }`}
+          >
+            About
+          </a>
+        </li>
+
+        <li>
+          <a href="/contact" class="block text-brand-gold">
+            Request Consultation
+          </a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+
+</header>
+
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const menuPanel = document.getElementById('menuPanel');
+  const bars = menuBtn.querySelectorAll('span');
+
+  menuBtn.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.contains('opacity-100');
+
+    if (!isOpen) {
+      mobileMenu.classList.remove('opacity-0', 'invisible');
+      mobileMenu.classList.add('opacity-100', 'visible');
+      menuPanel.classList.remove('-translate-y-10');
+      document.body.classList.add('overflow-hidden');
+
+      bars[0].classList.add('rotate-45', 'translate-y-[7px]');
+      bars[1].classList.add('opacity-0');
+      bars[2].classList.add('-rotate-45', '-translate-y-[7px]');
+    } else {
+      mobileMenu.classList.remove('opacity-100', 'visible');
+      mobileMenu.classList.add('opacity-0', 'invisible');
+      menuPanel.classList.add('-translate-y-10');
+      document.body.classList.remove('overflow-hidden');
+
+      bars.forEach(bar =>
+        bar.classList.remove(
+          'rotate-45',
+          '-rotate-45',
+          'translate-y-[7px]',
+          '-translate-y-[7px]',
+          'opacity-0'
+        )
+      );
+    }
+  });
+
+  mobileMenu.addEventListener('click', (e) => {
+    if (e.target === mobileMenu) {
+      menuBtn.click();
+    }
+  });
+</script>

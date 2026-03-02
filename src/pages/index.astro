@@ -2,6 +2,311 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="Deexon Solutions | Modern Technology Solutions">
-  <h1 class="text-4xl font-bold">Deexon Solutions</h1>
+<Layout title="Deexon Solutions | Digital Solutions for Businesses & Individuals">
+
+<style>
+ 
+  @keyframes revealUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate-reveal {
+    animation: revealUp 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.2s; }
+  .delay-3 { animation-delay: 0.3s; }
+</style>
+
+<section class="relative min-h-screen flex items-center bg-[#08080A] overflow-hidden pt-20">
+
+  <div class="absolute inset-0 opacity-[0.03] pointer-events-none">
+    <div class="absolute inset-0 bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:100px_100px]"></div>
+  </div>
+
+  <div class="container mx-auto px-6 relative z-10">
+    <div class="grid lg:grid-cols-12 gap-12 items-center">
+
+      <div class="lg:col-span-7 space-y-10">
+
+        <div class="flex items-center gap-4 animate-reveal">
+          <div class="h-px w-10 bg-brand-gold"></div>
+          <p class="text-[10px] font-bold uppercase tracking-[0.5em] text-brand-gold">
+            Welcome to Deexon Solutions
+          </p>
+        </div>
+
+        <h1 class="text-6xl md:text-8xl font-bold tracking-tightest leading-[0.85] text-white animate-reveal delay-1">
+          Digital Solutions That <br />
+          <span class="text-white italic">Help You Grow.</span>
+        </h1>
+
+        <p class="text-xl text-white leading-relaxed max-w-xl font-light animate-reveal delay-2">
+          We help businesses, startups, and individuals build strong digital
+          foundations through modern websites, ICT training, and practical
+          technology solutions designed for real-world success.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-6 pt-6 animate-reveal delay-3">
+          <a href="/contact"
+             class="px-10 py-5 bg-brand-gold text-black text-[11px] font-bold uppercase tracking-widest hover:bg-white transition-all duration-500 text-center">
+            REQUEST CONSULTATION
+          </a>
+
+          <a href="/services"
+             class="px-10 py-5 border border-white/10 text-white text-[11px] font-bold uppercase tracking-widest hover:bg-white/5 transition-all duration-500 text-center">
+            Our Services
+          </a>
+        </div>
+      </div>
+
+      <div class="lg:col-span-5 relative hidden lg:block">
+        <div class="absolute -inset-20 bg-brand-gold/5 blur-[120px] rounded-full"></div>
+        <div class="relative border border-white/5 bg-white/[0.02] backdrop-blur-3xl p-12 rounded-2xl">
+           <div class="space-y-6">
+             <div class="h-1 w-20 bg-brand-gold"></div>
+             <div class="h-4 w-full bg-white/5 rounded"></div>
+             <div class="h-4 w-3/4 bg-white/5 rounded"></div>
+             <div class="h-4 w-1/2 bg-white/5 rounded"></div>
+           </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="py-40 bg-[#0C0C10] border-y border-white/5">
+  <div class="container mx-auto px-6 max-w-5xl">
+    <div class="grid md:grid-cols-12 gap-12 items-center">
+      <div class="md:col-span-4">
+        <h2 class="text-[10px] font-bold uppercase tracking-[0.5em] text-brand-gold">Core Philosophy</h2>
+      </div>
+      <div class="md:col-span-8">
+        <h3 class="text-4xl md:text-6xl font-bold text-white mb-10 tracking-tighter leading-tight">
+          Technology Made <br /> Simple & Powerful.
+        </h3>
+        <p class="text-white text-xl leading-relaxed font-light">
+          At Deexon Solutions, we combine creativity, innovation, and practical
+          knowledge to deliver high-quality digital services. Whether you are a
+          growing business or someone looking to build a tech career, we provide
+          the tools and support you need to move forward with confidence.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="py-40 bg-[#08080A]">
+  <div class="container mx-auto px-6">
+
+    <div class="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
+      <div class="max-w-xl">
+        <h2 class="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tightest">
+          What We Do.
+        </h2>
+        <p class="text-white text-lg uppercase tracking-widest font-light">
+          Engineered for Progress.
+        </p>
+      </div>
+      <p class="text-white max-w-xs text-sm border-l border-white/10 pl-6 italic">
+        Practical digital services designed to support businesses and individuals.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-px bg-white/10 border border-white/10 overflow-hidden">
+
+      <div class="bg-brand-black p-12 group hover:bg-white/[0.02] transition-colors duration-500">
+        <div class="mb-12 h-px w-12 bg-brand-gold"></div>
+        <h3 class="text-2xl font-bold text-white mb-6">Web Development</h3>
+        <p class="text-white leading-relaxed font-light text-sm">
+          Your business deserves a professional website that turns visitors into
+          customers. We build modern, responsive websites designed to grow your brand
+          and increase sales.
+        </p>
+      </div>
+
+      <div class="bg-brand-black p-12 group hover:bg-white/[0.02] transition-colors duration-500">
+        <div class="mb-12 h-px w-12 bg-brand-gold"></div>
+        <h3 class="text-2xl font-bold text-white mb-6">ICT Hubs</h3>
+        <p class="text-white leading-relaxed font-light text-sm">
+          Power your next tech project with our ICT hubs — perfect for startups,
+          developers, and tech professionals who need a reliable environment to build and collaborate.
+        </p>
+      </div>
+
+      <div class="bg-brand-gold p-12 flex flex-col justify-between group">
+        <div>
+          <div class="mb-12 h-px w-12 bg-black"></div>
+          <h3 class="text-2xl font-bold text-black mb-6">Academy</h3>
+          <p class="text-black/80 leading-relaxed font-medium text-sm">
+            Want to learn tech? Our academy provides hands-on training that helps you
+            gain real skills and start building your next dream project.
+          </p>
+        </div>
+        <span class="text-[10px] font-bold uppercase tracking-widest text-black pt-12">Enrollment Open →</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ================= TESTIMONIALS SECTION ================= -->
+<section class="py-40 bg-[#0C0C10] border-y border-white/5">
+  <div class="container mx-auto px-6 max-w-6xl text-center">
+    <h2 class="text-5xl md:text-7xl font-bold text-white tracking-tightest mb-16">
+      Testimonials
+    </h2>
+
+    <div class="grid md:grid-cols-4 gap-8">
+
+      <div class="bg-white/[0.03] border border-white/10 rounded-2xl p-8 text-left">
+        <div class="text-brand-gold text-sm mb-4">★★★★★</div>
+        <p class="text-white italic leading-relaxed mb-4">
+          “We needed a professional website for our business but didn’t know where to start. Deexon Solutions handled everything.”
+        </p>
+        <h4 class="text-brand-gold font-bold text-lg">Chinedu Okafor</h4>
+        <p class="text-white/60 text-xs uppercase tracking-widest">Website Development</p>
+      </div>
+
+      <div class="bg-white/[0.03] border border-white/10 rounded-2xl p-8 text-left">
+        <div class="text-brand-gold text-sm mb-4">★★★★☆</div>
+        <p class="text-white italic leading-relaxed mb-4">
+          “I joined the ICT hub with little knowledge of computers. The training was practical and easy to understand.”
+        </p>
+        <h4 class="text-brand-gold font-bold text-lg">Amina Bello</h4>
+        <p class="text-white/60 text-xs uppercase tracking-widest">ICT Training</p>
+      </div>
+
+      <div class="bg-white/[0.03] border border-white/10 rounded-2xl p-8 text-left">
+        <div class="text-brand-gold text-sm mb-4">★★★★★</div>
+        <p class="text-white italic leading-relaxed mb-4">
+          “The website developed by Deexon Solutions boosted our online presence and customer engagement significantly.”
+        </p>
+        <h4 class="text-brand-gold font-bold text-lg">Tunde Ajayi</h4>
+        <p class="text-white/60 text-xs uppercase tracking-widest">E-commerce</p>
+      </div>
+
+      <div class="bg-white/[0.03] border border-white/10 rounded-2xl p-8 text-left">
+        <div class="text-brand-gold text-sm mb-4">★★★★☆</div>
+        <p class="text-white italic leading-relaxed mb-4">
+          “Excellent hands-on training at the academy. It gave me confidence to work on real-world tech projects.”
+        </p>
+        <h4 class="text-brand-gold font-bold text-lg">Fatima Yusuf</h4>
+        <p class="text-white/60 text-xs uppercase tracking-widest">Academy</p>
+      </div>
+
+      <div class="bg-white/[0.03] border border-white/10 rounded-2xl p-8 text-left">
+        <div class="text-brand-gold text-sm mb-4">★★★★★</div>
+        <p class="text-white italic leading-relaxed mb-4">
+          “Deexon Solutions created an amazing brand identity for us. The process was smooth and professional.”
+        </p>
+        <h4 class="text-brand-gold font-bold text-lg">Emeka Nnadi</h4>
+        <p class="text-white/60 text-xs uppercase tracking-widest">Branding</p>
+      </div>
+
+      <div class="bg-white/[0.03] border border-white/10 rounded-2xl p-8 text-left">
+        <div class="text-brand-gold text-sm mb-4">★★★★★</div>
+        <p class="text-white italic leading-relaxed mb-4">
+          “The ICT hub environment was perfect for learning and networking with other tech professionals.”
+        </p>
+        <h4 class="text-brand-gold font-bold text-lg">Kemi Ade</h4>
+        <p class="text-white/60 text-xs uppercase tracking-widest">ICT Hub</p>
+      </div>
+
+      <div class="bg-white/[0.03] border border-white/10 rounded-2xl p-8 text-left">
+        <div class="text-brand-gold text-sm mb-4">★★★★☆</div>
+        <p class="text-white italic leading-relaxed mb-4">
+          “The academy instructors explained complex concepts clearly. Highly recommended for anyone learning tech.”
+        </p>
+        <h4 class="text-brand-gold font-bold text-lg">Joshua Eze</h4>
+        <p class="text-white/60 text-xs uppercase tracking-widest">Academy</p>
+      </div>
+
+      <div class="bg-white/[0.03] border border-white/10 rounded-2xl p-8 text-left">
+        <div class="text-brand-gold text-sm mb-4">★★★★★</div>
+        <p class="text-white italic leading-relaxed mb-4">
+          “We are extremely satisfied with the website development services — professional, efficient, and high quality.”
+        </p>
+        <h4 class="text-brand-gold font-bold text-lg">Ngozi Chukwu</h4>
+        <p class="text-white/60 text-xs uppercase tracking-widest">Website Development</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- ======================================================== -->
+
+
+<section class="py-40 bg-[#0C0C10]">
+  <div class="container mx-auto px-6">
+
+    <div class="grid lg:grid-cols-12 gap-20">
+      <div class="lg:col-span-5">
+         <h2 class="text-5xl md:text-7xl font-bold text-white tracking-tightest leading-none">
+          Our Mission <br /> & Values.
+        </h2>
+      </div>
+
+      <div class="lg:col-span-7 grid gap-16 border-l border-white/5 pl-12">
+        <div>
+          <h4 class="text-brand-gold text-[10px] font-bold uppercase tracking-[0.4em] mb-4 font-mono">// Our Mission</h4>
+          <p class="text-white text-xl leading-relaxed font-light">
+            To provide affordable, high-quality digital and ICT services that empower
+            individuals and businesses to succeed in a technology-driven world.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12">
+          <div>
+            <h4 class="text-white font-bold mb-4 uppercase text-xs tracking-widest">Innovation</h4>
+            <p class="text-white text-sm leading-relaxed">
+              We continuously improve and create better ways to deliver effective
+              technology solutions.
+            </p>
+          </div>
+          <div>
+            <h4 class="text-white font-bold mb-4 uppercase text-xs tracking-widest">Integrity & Empowerment</h4>
+            <p class="text-white text-sm leading-relaxed">
+              We build trust through transparency and help people unlock their potential
+              through learning and digital growth.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="py-48 bg-[#08080A] text-center border-t border-white/5 relative">
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.05)_0%,transparent_70%)]"></div>
+  
+  <div class="container mx-auto px-6 max-w-4xl relative z-10">
+    <h2 class="text-6xl md:text-9xl font-bold text-white mb-12 tracking-tightest leading-none">
+      LET'S BUILD <br /> <span class="text-brand-gold italic">TOGETHER.</span>
+    </h2>
+
+    <p class="text-white text-xl mb-16 font-light max-w-2xl mx-auto">
+      Whether you need a website, a digital solution, or tech training —
+      we’re ready to help you take the next step.
+    </p>
+
+    <a href="/contact"
+       class="inline-block px-12 py-6 bg-brand-gold text-black text-[11px] font-bold uppercase tracking-[0.4em] transition-all hover:bg-white">
+      Contact Us Today
+    </a>
+  </div>
+</section>
+
 </Layout>
+
+<style>
+  .tracking-tightest { letter-spacing: -0.06em; }
+</style>

@@ -1,1 +1,14 @@
 @import "tailwindcss";
+
+@theme {
+  --color-brand-black: #08080A;
+  --color-brand-gold: #D4AF37;
+  --color-brand-gold-muted: rgba(212, 175, 55, 0.1);
+  --color-surface: #111116;
+}
+
+@layer base {
+  body {
+    @apply bg-brand-black text-white antialiased;
+  }
+}
