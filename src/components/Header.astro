@@ -62,7 +62,7 @@ const isActive = (path) => normalize(pathname) === normalize(path);
 
     <!-- Right Side -->
     <div class="flex items-center space-x-6">
-      <a href="/contact" class="hidden sm:block text-[11px] font-bold uppercase tracking-widest text-white border-b border-brand-gold pb-1 hover:text-brand-gold transition-all">
+      <a href="/consultation" class="hidden sm:block text-[11px] font-bold uppercase tracking-widest text-white border-b border-brand-gold pb-1 hover:text-brand-gold transition-all">
         Request Consultation
       </a>
 
@@ -104,17 +104,6 @@ const isActive = (path) => normalize(pathname) === normalize(path);
 
         <li>
           <a 
-            href="/academy" 
-            class={`block hover:text-brand-gold ${
-              isActive('/academy') ? 'text-brand-gold' : ''
-            }`}
-          >
-            Academy
-          </a>
-        </li>
-
-        <li>
-          <a 
             href="/about" 
             class={`block hover:text-brand-gold ${
               isActive('/about') ? 'text-brand-gold' : ''
@@ -125,7 +114,7 @@ const isActive = (path) => normalize(pathname) === normalize(path);
         </li>
 
         <li>
-          <a href="/contact" class="block text-brand-gold">
+          <a href="/consultation" class="block text-brand-gold">
             Request Consultation
           </a>
         </li>

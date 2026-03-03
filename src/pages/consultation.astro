@@ -1,0 +1,147 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Request Consultation | Deexon Solutions">
+
+<section class="min-h-screen bg-[#08080A] pt-32 pb-24">
+  <div class="container mx-auto px-6 max-w-3xl">
+
+    <!-- Heading -->
+    <div class="text-center mb-16">
+      <h1 class="text-5xl md:text-6xl font-bold text-white tracking-tightest mb-6">
+        Request Consultation
+      </h1>
+      <p class="text-white/70 text-lg font-light">
+        A consultant will review your request and get back to you.
+      </p>
+    </div>
+
+    <!-- FORM -->
+    <div id="form-wrapper" class="bg-white/[0.03] border border-white/10 rounded-2xl p-10">
+
+      <form id="consultationForm" class="space-y-6">
+
+        <div>
+          <label class="text-white text-sm block mb-2">Full Name</label>
+          <input name="fullName" type="text" required
+            class="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-gold">
+        </div>
+
+        <div>
+          <label class="text-white text-sm block mb-2">Email Address</label>
+          <input name="email" type="email" required
+            class="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-gold">
+        </div>
+
+        <div>
+          <label class="text-white text-sm block mb-2">Phone Number</label>
+          <input name="phone" type="tel" required
+            class="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-gold">
+        </div>
+
+        <div>
+          <label class="text-white text-sm block mb-2">Business Name</label>
+          <input name="businessName" type="text" required
+            class="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-gold">
+        </div>
+
+        <div>
+          <label class="text-white text-sm block mb-2">Location</label>
+          <input name="location" type="text" required
+            class="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-gold">
+        </div>
+
+        <div>
+          <label class="text-white text-sm block mb-2">Service Needed</label>
+          <select name="service" required
+            class="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-gold">
+            <option>Website Development</option>
+            <option>Website Upgrade</option>
+            <option>ICT Training</option>
+            <option>Office Networking</option>
+            <option>Tech Consultation</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="text-white text-sm block mb-2">Project Description</label>
+          <textarea name="description" rows="4" required
+            class="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-gold"></textarea>
+        </div>
+
+        <button type="submit"
+          class="w-full mt-6 bg-brand-gold text-black py-4 font-bold uppercase tracking-widest hover:bg-white transition-all">
+          Submit Request
+        </button>
+
+      </form>
+    </div>
+
+    <!-- SUCCESS MESSAGE -->
+    <div id="success-message" class="hidden text-center bg-white/[0.03] border border-white/10 rounded-2xl p-12">
+
+      <h2 class="text-3xl font-bold text-white mb-6">
+        Thank You.
+      </h2>
+
+      <p class="text-white/70 text-lg mb-8">
+        A consultant will review your request within 24 hours.
+      </p>
+
+      <div class="border-t border-white/10 pt-8">
+        <p class="text-white mb-6">
+          Need urgent response?
+        </p>
+
+        <a href="https://wa.me/234XXXXXXXXXX"
+          target="_blank"
+          class="inline-block bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-lg font-bold uppercase tracking-widest transition-all">
+          Chat With Us on WhatsApp
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById("consultationForm");
+  const formWrapper = document.getElementById("form-wrapper");
+  const successMessage = document.getElementById("success-message");
+
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+      const response = await fetch("/api/consultation", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      });
+
+      if (!response.ok) throw new Error("Submission failed");
+
+      formWrapper.classList.add("hidden");
+      successMessage.classList.remove("hidden");
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
+
+    } catch (error) {
+      alert("Something went wrong. Please try again.");
+    }
+  });
+</script>
+
+<style>
+  .tracking-tightest { letter-spacing: -0.06em; }
+</style>
+
+</Layout>
