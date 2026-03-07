@@ -1,41 +1,30 @@
-import type { APIRoute } from "astro";
-import nodemailer from "nodemailer";
+import nodemailer from 'nodemailer';
+export { renderers } from '../../renderers.mjs';
 
-export const prerender = false;
-
-export const POST: APIRoute = async ({ request }) => {
+const prerender = false;
+const POST = async ({ request }) => {
   try {
     const data = await request.json();
-
     const { fullName, email, phone, businessName, location, service, description } = data;
-
-    // Validate required fields
     if (!fullName || !email || !phone || !service || !description) {
       return new Response(
         JSON.stringify({ error: "Missing required fields" }),
         { status: 400 }
       );
     }
-
-    // Nodemailer transporter
-   const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 465,
-  secure: true,
-
-  auth: {
-    user: import.meta.env.SMTP_USER,
-    pass: import.meta.env.SMTP_PASS,
-  },
-
-  family: 4,
-
-  connectionTimeout: 10000,
-  greetingTimeout: 10000,
-  socketTimeout: 10000
-});
-
-    // Verify connection
+    const transporter = nodemailer.createTransport({
+      host: "smtp.gmail.com",
+      port: 465,
+      secure: true,
+      auth: {
+        user: "Deexonsolution247@gmail.com",
+        pass: "lfwg mdvc uslg owex"
+      },
+      family: 4,
+      connectionTimeout: 1e4,
+      greetingTimeout: 1e4,
+      socketTimeout: 1e4
+    });
     try {
       await transporter.verify();
       console.log("SMTP connection verified ");
@@ -46,9 +35,8 @@ export const POST: APIRoute = async ({ request }) => {
         { status: 500 }
       );
     }
-
     const mailOptions = {
-      from: `"Deexon Website" <${import.meta.env.SMTP_USER}>`,
+      from: `"Deexon Website" <${"Deexonsolution247@gmail.com"}>`,
       to: "Deexonsolution247@gmail.com",
       subject: "New Consultation Request",
       html: `
@@ -61,16 +49,12 @@ export const POST: APIRoute = async ({ request }) => {
         <p><strong>Service:</strong> ${service}</p>
         <p><strong>Description:</strong></p>
         <p>${description}</p>
-      `,
+      `
     };
-
-    // Send email
     await transporter.sendMail(mailOptions);
     console.log("Email sent successfully 📧");
-
     return new Response(JSON.stringify({ message: "Success" }), { status: 200 });
-
-  } catch (error: any) {
+  } catch (error) {
     console.error("Email sending error ❌:", error);
     return new Response(
       JSON.stringify({ error: "Failed to send email", details: error.message }),
@@ -78,3 +62,13 @@ export const POST: APIRoute = async ({ request }) => {
     );
   }
 };
+
+const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  POST,
+  prerender
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const page = () => _page;
+
+export { page };
