@@ -17,7 +17,7 @@ Thank You.
 A consultant will review your request within 24 hours.
 </p> <div class="border-t border-white/10 pt-8" data-astro-cid-2p5p74pw> <p class="text-white mb-6" data-astro-cid-2p5p74pw>
 Need urgent response?
-</p> <a href="https://wa.me/234XXXXXXXXXX" target="_blank" class="inline-block bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-lg font-bold uppercase tracking-widest transition-all" data-astro-cid-2p5p74pw>
+</p> <a href="https://wa.me/2349046519562" target="_blank" class="inline-block bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-lg font-bold uppercase tracking-widest transition-all" data-astro-cid-2p5p74pw>
 Chat With Us on WhatsApp
 </a> </div> </div> </div> </section> ${renderScript($$result2, "/home/emman/deexon-solution-website/src/pages/consultation.astro?astro&type=script&index=0&lang.ts")}  ` })}`;
 }, "/home/emman/deexon-solution-website/src/pages/consultation.astro", void 0);
